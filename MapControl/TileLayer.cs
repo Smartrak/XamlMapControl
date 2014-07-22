@@ -63,6 +63,7 @@ namespace MapControl
         public int MaxParallelDownloads { get; set; }
         public bool LoadLowerZoomLevels { get; set; }
         public bool AnimateTileOpacity { get; set; }
+        public bool SupportsRotation { get; set; }
         public Brush Foreground { get; set; }
 
         public string Description
@@ -101,7 +102,7 @@ namespace MapControl
         {
             this.grid = grid;
             this.zoomLevel = zoomLevel;
-            this.rotation = rotation;
+            this.rotation = SupportsRotation ? rotation : 0;
 
             if (tileSource != null)
             {
@@ -143,14 +144,14 @@ namespace MapControl
                 {
                     for (var x = x1; x <= x2; x++)
                     {
-                        var tile = tiles.FirstOrDefault(t => t.ZoomLevel == z && t.X == x && t.Y == y);
+                        var tile = tiles.FirstOrDefault(t => t.ZoomLevel == z && t.X == x && t.Y == y && t.Rotation == rotation);
 
                         if (tile == null)
                         {
                             tile = new Tile(z, x, y, rotation);
 
                             var equivalentTile = tiles.FirstOrDefault(
-                                t => t.Image.Source != null && t.ZoomLevel == z && t.XIndex == tile.XIndex && t.Y == y && t.Rotation == rotation);
+                                t => t.Image.Source != null && t.ZoomLevel == z && t.XIndex == tile.XIndex && t.Y == y  && t.Rotation == rotation);
 
                             if (equivalentTile != null)
                             {

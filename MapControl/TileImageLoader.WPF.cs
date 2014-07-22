@@ -297,7 +297,7 @@ namespace MapControl
 
             public static string Key(string sourceName, Tile tile)
             {
-                return string.Format("{0}/{1}/{2}/{3}", sourceName, tile.ZoomLevel, tile.XIndex, tile.Y);
+                return string.Format("{0}/{1}/{2}/{3}/{4}", sourceName, tile.ZoomLevel, tile.XIndex, tile.Y, tile.Rotation);
             }
 
             public static MemoryStream ImageStream(byte[] cacheBuffer)

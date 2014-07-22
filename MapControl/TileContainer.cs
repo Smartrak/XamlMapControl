@@ -32,6 +32,7 @@ namespace MapControl
         private double zoomLevel;
         private int tileZoomLevel;
         private Int32Rect tileGrid;
+        private double tileRotation;
 
         public readonly MatrixTransform ViewportTransform = new MatrixTransform();
 
@@ -142,10 +143,11 @@ namespace MapControl
             var y2 = (int)Math.Floor(Math.Max(p1.Y, Math.Max(p2.Y, Math.Max(p3.Y, p4.Y))));
             var grid = new Int32Rect(x1, y1, x2 - x1 + 1, y2 - y1 + 1);
 
-            if (tileZoomLevel != zoom || tileGrid != grid)
+            if (tileZoomLevel != zoom || tileGrid != grid || tileRotation != rotation)
             {
                 tileZoomLevel = zoom;
                 tileGrid = grid;
+                tileRotation = rotation;
 
                 UpdateRenderTransform();
 
