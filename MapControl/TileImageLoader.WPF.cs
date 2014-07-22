@@ -163,7 +163,7 @@ namespace MapControl
                 }
                 else
                 {
-                    var uri = tileSource.GetUri(tile.XIndex, tile.Y, tile.ZoomLevel);
+                    var uri = tileSource.GetUri(tile.XIndex, tile.Y, tile.ZoomLevel, tile.Rotation);
 
                     if (uri != null)
                     {
@@ -199,7 +199,7 @@ namespace MapControl
 
             try
             {
-                image = tileSource.LoadImage(tile.XIndex, tile.Y, tile.ZoomLevel);
+                image = tileSource.LoadImage(tile.XIndex, tile.Y, tile.ZoomLevel, tile.Rotation);
             }
             catch (Exception ex)
             {

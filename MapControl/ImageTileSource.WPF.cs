@@ -20,11 +20,11 @@ namespace MapControl
     {
         public bool IsAsync { get; set; }
 
-        public virtual ImageSource LoadImage(int x, int y, int zoomLevel)
+        public virtual ImageSource LoadImage(int x, int y, int zoomLevel, int rotation)
         {
             ImageSource image = null;
 
-            var uri = GetUri(x, y, zoomLevel);
+            var uri = GetUri(x, y, zoomLevel, rotation);
 
             if (uri != null)
             {

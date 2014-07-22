@@ -21,7 +21,7 @@ namespace MapControl
         public const int TileSize = 256;
         public const double EarthRadius = 6378137d; // WGS 84 semi major axis
 
-        private Func<int, int, int, Uri> getUri;
+        private Func<int, int, int, int, Uri> getUri;
         private string uriFormat = string.Empty;
 
         public TileSource()
@@ -48,7 +48,7 @@ namespace MapControl
                 }
 
                 uriFormat = value;
-
+                /*
                 if (uriFormat.Contains("{x}") && uriFormat.Contains("{y}") && uriFormat.Contains("{z}"))
                 {
                     if (uriFormat.Contains("{c}"))
@@ -64,8 +64,8 @@ namespace MapControl
                         getUri = GetMapQuestUri;
                     }
                     else
-                    {
-                        getUri = GetBasicUri;
+                    {*/
+                        getUri = GetBasicUri;/*
                     }
                 }
                 else if (uriFormat.Contains("{q}")) // {i} is optional
@@ -83,21 +83,23 @@ namespace MapControl
                 else if (uriFormat.Contains("{x}") && uriFormat.Contains("{v}") && uriFormat.Contains("{z}"))
                 {
                     getUri = GetTmsUri;
-                }
+                }*/
             }
         }
 
-        public virtual Uri GetUri(int x, int y, int zoomLevel)
+        public virtual Uri GetUri(int x, int y, int zoomLevel, int rotation)
         {
-            return getUri != null ? getUri(x, y, zoomLevel) : null;
+            return getUri != null ? getUri(x, y, zoomLevel, rotation) : null;
         }
 
-        private Uri GetBasicUri(int x, int y, int zoomLevel)
+        private Uri GetBasicUri(int x, int y, int zoomLevel, int rotation)
         {
             return new Uri(uriFormat.
                 Replace("{x}", x.ToString()).
                 Replace("{y}", y.ToString()).
-                Replace("{z}", zoomLevel.ToString()));
+                Replace("{z}", zoomLevel.ToString()).
+                Replace("{r}", rotation.ToString())
+                );
         }
 
         private Uri GetOpenStreetMapUri(int x, int y, int zoomLevel)

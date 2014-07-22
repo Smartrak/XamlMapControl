@@ -27,11 +27,11 @@ namespace MapControl
 
                     if (imageTileSource != null)
                     {
-                        image = imageTileSource.LoadImage(tile.XIndex, tile.Y, tile.ZoomLevel);
+                        image = imageTileSource.LoadImage(tile.XIndex, tile.Y, tile.ZoomLevel, tile.Rotation);
                     }
                     else
                     {
-                        var uri = tileLayer.TileSource.GetUri(tile.XIndex, tile.Y, tile.ZoomLevel);
+                        var uri = tileLayer.TileSource.GetUri(tile.XIndex, tile.Y, tile.ZoomLevel, tile.Rotation);
 
                         if (uri != null)
                         {

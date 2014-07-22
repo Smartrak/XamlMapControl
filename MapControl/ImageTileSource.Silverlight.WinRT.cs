@@ -19,9 +19,9 @@ namespace MapControl
     /// </summary>
     public class ImageTileSource : TileSource
     {
-        public virtual ImageSource LoadImage(int x, int y, int zoomLevel)
+        public virtual ImageSource LoadImage(int x, int y, int zoomLevel, int rotation)
         {
-            var uri = GetUri(x, y, zoomLevel);
+            var uri = GetUri(x, y, zoomLevel, rotation);
 
             return uri != null ? new BitmapImage(uri) : null;
         }

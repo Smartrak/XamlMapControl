@@ -18,13 +18,15 @@ namespace MapControl
         public readonly int ZoomLevel;
         public readonly int X;
         public readonly int Y;
+        public readonly int Rotation;
         public readonly Image Image = new Image { Opacity = 0d };
 
-        public Tile(int zoomLevel, int x, int y)
+        public Tile(int zoomLevel, int x, int y, int rotation)
         {
             ZoomLevel = zoomLevel;
             X = x;
             Y = y;
+            Rotation = rotation;
         }
 
         public bool HasImageSource { get; private set; }

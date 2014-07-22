@@ -46,6 +46,7 @@ namespace MapControl
         private List<Tile> tiles = new List<Tile>();
         private Int32Rect grid;
         private int zoomLevel;
+        private int rotation;
 
         public TileLayer()
         {
@@ -96,10 +97,11 @@ namespace MapControl
             }
         }
 
-        internal void UpdateTiles(int zoomLevel, Int32Rect grid)
+        internal void UpdateTiles(int zoomLevel, Int32Rect grid, int rotation)
         {
             this.grid = grid;
             this.zoomLevel = zoomLevel;
+            this.rotation = rotation;
 
             if (tileSource != null)
             {
@@ -145,10 +147,10 @@ namespace MapControl
 
                         if (tile == null)
                         {
-                            tile = new Tile(z, x, y);
+                            tile = new Tile(z, x, y, rotation);
 
                             var equivalentTile = tiles.FirstOrDefault(
-                                t => t.Image.Source != null && t.ZoomLevel == z && t.XIndex == tile.XIndex && t.Y == y);
+                                t => t.Image.Source != null && t.ZoomLevel == z && t.XIndex == tile.XIndex && t.Y == y && t.Rotation == rotation);
 
                             if (equivalentTile != null)
                             {

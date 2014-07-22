@@ -61,7 +61,7 @@ namespace MapControl
                 }
 
                 index++;
-                tileLayer.UpdateTiles(tileZoomLevel, tileGrid);
+                tileLayer.UpdateTiles(tileZoomLevel, tileGrid, (int)rotation);
             }
         }
 
@@ -151,7 +151,7 @@ namespace MapControl
 
                 foreach (TileLayer tileLayer in InternalChildren)
                 {
-                    tileLayer.UpdateTiles(tileZoomLevel, tileGrid);
+                    tileLayer.UpdateTiles(tileZoomLevel, tileGrid, (int)rotation);
                 }
             }
         }
