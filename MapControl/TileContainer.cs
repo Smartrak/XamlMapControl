@@ -22,7 +22,7 @@ namespace MapControl
         // relative scaled tile size ranges from 0.75 to 1.5 (192 to 384 pixels)
         private static double zoomLevelSwitchDelta = -Math.Log(0.75, 2d);
 
-        public static TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5);
+        public static TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.1);
 
         private readonly DispatcherTimer updateTimer;
         private Size viewportSize;
