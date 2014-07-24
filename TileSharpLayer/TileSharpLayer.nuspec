@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Smartrak.XamlMapControl.TileSharpLayer</id>
+    <version>2.2.0</version>
+    <authors>dave</authors>
+    <owners>dave</owners>
+    <projectUrl>https://github.com/Smartrak/XamlMapControl</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A TileSharp based TileLayer/TileSource for Smartrak.XamlMapControl</description>
+    <copyright>Copyright 2014</copyright>
+    <dependencies>
+      <dependency id="GeoAPI" version="1.7.2" />
+      <dependency id="NetTopologySuite" version="1.13.2" />
+      <dependency id="TileSharp" version="1.0.0.0" />
+    </dependencies>
+  </metadata>
+</package>

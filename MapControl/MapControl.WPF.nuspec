@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Smartrak.XamlMapControl</id>
+    <version>2.2.0</version>
+    <authors>dave</authors>
+    <owners>dave</owners>
+    <projectUrl>https://github.com/Smartrak/XamlMapControl</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A version of XamlMapControl with custom stuff. Supports refetching tiles based on the map rotation</description>
+    <copyright>Copyright 2014</copyright>
+  </metadata>
+</package>
