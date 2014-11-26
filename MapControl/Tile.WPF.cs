@@ -12,7 +12,7 @@ namespace MapControl
 {
     public partial class Tile
     {
-        public void SetImageSource(ImageSource image, bool animateOpacity)
+        public void SetImageSource(ImageSource image, bool animateOpacity, bool stillWantANewImage = false)
         {
             if (image != null && Image.Source == null)
             {
@@ -37,7 +37,8 @@ namespace MapControl
             }
 
             Image.Source = image;
-            HasImageSource = true;
+            if (!stillWantANewImage)
+                HasImageSource = true;
         }
 
         private void BitmapDownloadCompleted(object sender, EventArgs e)

@@ -151,12 +151,12 @@ namespace MapControl
                             tile = new Tile(z, x, y, rotation);
 
                             var equivalentTile = tiles.FirstOrDefault(
-                                t => t.Image.Source != null && t.ZoomLevel == z && t.XIndex == tile.XIndex && t.Y == y  && t.Rotation == rotation);
+                                t => t.Image.Source != null && t.ZoomLevel == z && t.XIndex == tile.XIndex && t.Y == y);
 
                             if (equivalentTile != null)
                             {
                                 // do not animate to avoid flicker when crossing date line
-                                tile.SetImageSource(equivalentTile.Image.Source, false);
+                                tile.SetImageSource(equivalentTile.Image.Source, false, equivalentTile.Rotation != rotation);
                             }
                         }
 
